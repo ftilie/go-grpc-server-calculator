@@ -1,0 +1,23 @@
+package main
+
+import (
+	"context"
+	"log"
+
+	pb "github.com/ftilie/go-grpc-servers/calculator/proto"
+)
+
+func doAdd(c pb.CalculatorServiceClient) {
+	log.Println("doAdd was invoked")
+
+	res, err := c.Add(context.Background(), &pb.AddRequest{
+		FirstNumber:  1,
+		SecondNumber: 2,
+	})
+
+	if err != nil {
+		log.Fatalf("Error while calling Calculator RPC: %v", err)
+	}
+
+	log.Printf("Response from Calculator: %v", res.Result)
+}

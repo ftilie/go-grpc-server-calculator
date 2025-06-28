@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "github.com/ftilie/go-grpc-servers/calculator/proto";
+
+message DivideRequest {
+    int32 first_number = 1;
+    int32 second_number = 2;
+}
+
+message DivideResponse {
+    double result = 1;
+}

@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "github.com/ftilie/go-grpc-servers/calculator/proto";
+
+import "add.proto";
+import "subtract.proto";
+import "multiply.proto";
+import "divide.proto";
+import "prime.proto";
+import "average.proto";
+import "maximum.proto";
+import "sqrt.proto";
+
+service CalculatorService {
+    rpc Add(AddRequest) returns (AddResponse);
+    rpc Subtract(SubtractRequest) returns (SubtractResponse);
+    rpc Multiply(MultiplyRequest) returns (MultiplyResponse);
+    rpc Divide(DivideRequest) returns (DivideResponse);
+    rpc GetPrimes(GetPrimesRequest) returns (stream GetPrimesResponse);
+    rpc GetAverage(stream GetAverageRequest) returns (GetAverageResponse);
+    rpc GetMaximum(stream GetMaximumRequest) returns (stream GetMaximumResponse);
+    rpc SquareRoot(SquareRootRequest) returns (SquareRootResponse);
+}

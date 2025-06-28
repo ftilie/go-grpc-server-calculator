@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "github.com/ftilie/go-grpc-servers/calculator/proto";
+
+message GetAverageRequest {
+    int32 number = 1;
+}
+
+message GetAverageResponse {
+    double average = 1;
+}
